@@ -1,0 +1,271 @@
+import groovy.json.JsonSlurperClassic
+import groovy.json.JsonOutput
+
+// Acats build script
+// Parameters:
+// deployEnv - values: dev, qa (as defined in the Preparation step)
+// branch_name - name of the branch to pull the code from
+
+node('EQUITYCLEARING'){
+   // Define Maven
+   def mvnHome = tool name: 'apache-maven-3.3.9'
+   
+   // Define SonarQube
+   def scannerHome = tool 'Sonarqube'
+   
+ 
+   stage('Preparation') {
+
+        //Set up proxy
+        env.http_proxy = 'http://10.168.225.199:8080'
+        env.https_proxy = 'http://10.168.225.199:8080'
+        env.NO_PROXY = '169.254.169.254,repo.dtcc.com'
+		
+		accountMap = [dev: '255482788127', qa: '198795378352', pse: '343503023945', prod:'400424681572'] 
+        def roleMap = [dev: 'role-sys-cloudbees-ficc', qa: 'role-sys-cloudbees-ficc', pse:'role-sys-cloudbees-ficc', prod:'role-sys-cloudbees-ficc']
+
+        //Set up assume role credentials
+		assumeRole = "arn:aws:iam::" + accountMap["${deployEnv}"] + ":role/" + roleMap["${deployEnv}"]
+		echo "Assume role is " + assumeRole
+		
+		// assume-role returns a set of temporary security credentials that can be used to access AWS resources
+        String assumeRoleResponseJson = sh returnStdout: true , script: "aws sts assume-role --role-arn $assumeRole --role-session-name acats-jenkins-session"
+		def assumeRoleResponse = new JsonSlurperClassic().parseText(assumeRoleResponseJson)
+		
+		echo assumeRoleResponseJson
+		
+		echo "About to set configuration variables on environment"
+        env.AWS_ACCESS_KEY_ID = assumeRoleResponse.Credentials.AccessKeyId
+        env.AWS_SECRET_ACCESS_KEY = assumeRoleResponse.Credentials.SecretAccessKey
+        env.AWS_SESSION_TOKEN = assumeRoleResponse.Credentials.SessionToken
+        env.AWS_DEFAULT_REGION = 'us-east-1'
+    
+        echo "AccessKeyId: $assumeRoleResponse.Credentials.AccessKeyId"
+        echo "SecretAccessKey: $assumeRoleResponse.Credentials.SecretAccessKey"
+        echo "SessionToken: $assumeRoleResponse.Credentials.SessionToken"
+      
+     
+        echo "Getting code from GIT branch: ${branch_name}"
+    //    git branch: "${branch_name}", url: 'ssh://git@code.dtcc.com:7999/acatsm/acats.git'
+  //  sh "aws s3 ls"
+    //  sh "aws --version"
+    //echo $Process
+    echo "Getting the process  choice: ${process_name}"
+    
+    echo "${process_name}"
+    
+     git poll: true, url: 'ssh://git@code.dtcc.com:7999/acatsm/acats.git', branch: "$branch_name", credentialsId: ''
+    shortCommit = sh(returnStdout: true, script: 'git rev-parse HEAD').trim().take(6)
+    
+   }
+
+   stage('Build') {
+      
+      //************************************
+      // Run the maven build with SonarQube
+      //************************************
+      
+      withSonarQubeEnv('SONAR_DETAILS') {
+        if (isUnix()) {
+		
+		//	sh "'${mvnHome}/bin/mvn' clean package -DSonar.maven.goal -Dsonar.host.url -Dsonar.login cobertura:cobertura -Dcobertura.report.format=html"
+		//	sh "${scannerHome}/sonar-scanner"
+		
+		//    sh "${mvnHome}/bin/mvn clean package assembly:single"
+			
+			 sh "${mvnHome}/bin/mvn clean -DskipTests package assembly:single"
+		
+        } else {
+            bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+        }
+		
+      }
+	  
+      echo "${env.WORKSPACE}"
+      
+     publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: false, reportDir: '/apps/cloudbees-je/cloudbees-data/workspace/ita-demo-dev/pat - Pipeline 1 (DEV)/target/site/cobertura', reportFiles: 'index.html', reportName: 'Coverage Report']) 
+      
+   }
+   
+   stage('UTest') {
+      
+      //*********************************
+      // Unit test
+      //*********************************
+    //  junit '**/target/surefire-reports/TEST-*.xml'
+    //  archive 'target/*.jar'
+   }
+ 
+   stage('Fortify') {
+       
+       //************************************
+       // Fortify, SonaQube, other tools
+       //************************************
+      // sh '''
+         //  project=Acats
+         //  rm -f $project.*.fpr
+        //   src_dir=$WORKSPACE/src
+         //  sourceanalyzer -b $project -clean
+        //   sourceanalyzer -b $project -jdk 1.8 -cp $WORKSPACE/lib/*.jar $WORKSPACE/src/**/*.java
+        //  sourceanalyzer -Xms1024M -Xmx1024M -b $project -scan -f ${project}_${BUILD_ID}.fpr -logfile scan_$project.log'''
+			
+			
+		
+   }
+
+   stage('Deploy') {
+       
+        //***********************************
+        //Deploying lambda function
+        //***********************************
+        echo "Deploying Lambda version: ${env.BUILD_TAG}"
+		sysid="pat"
+		
+		// Lambda function names  -- add new ones below 
+		
+        def sodverifydate ="${sysid}"+'-'+"${deployEnv}"+'-'+'sod-verifydate'
+        def sodrollProcessDate ="${sysid}"+'-'+"${deployEnv}"+'-'+'sod-rollProcessDate'
+        
+        def intradayreceivefile  ="${sysid}"+'-'+"${deployEnv}"+'-'+'intraday-receivefile'
+        def processfixedfile  ="${sysid}"+'-'+"${deployEnv}"+'-'+'process-fixed-file'
+        def processvariablefile ="${sysid}"+'-'+"${deployEnv}"+'-'+'process-variable-file'
+        def processactiongroup ="${sysid}"+'-'+"${deployEnv}"+'-'+'process-action-group'
+        def fileGatekeeper ="${sysid}"+'-'+"${deployEnv}"+'-'+'file-gatekeeper'
+        def fileSweeper ="${sysid}"+'-'+"${deployEnv}"+'-'+'file-sweeper'
+        def fileSweeperPublisher ="${sysid}"+'-'+"${deployEnv}"+'-'+'file-sweeper-publisher'
+        def updateApplState ="${sysid}"+'-'+"${deployEnv}"+'-'+'update-appl-state'
+        def applStatePublisher ="${sysid}"+'-'+"${deployEnv}"+'-'+'appl-state-publisher'
+        def fileProcessor ="${sysid}"+'-'+"${deployEnv}"+'-'+'file-processor'
+        
+
+        
+        echo "lambda name: ${sodverifydate},${sodrollProcessDate},${intradayreceivefile},${processfixedfile},${processvariablefile},${processactiongroup},${fileGatekeeper},${fileSweeper},${fileSweeperPublisher},${updateApplState},${applStatePublisher},${fileProcessor}"
+        
+       	def devEnvMap = ["s3" : "https://s3.amazonaws.com/pat-dev-pipe1-acatsappstorage-us-east-1/Deployment/pat-1.0.0-intraday.zip"
+		                 ,"JAVA_TOOL_OPTIONS" : "-Dhttps.proxyHost=proxy-dev-us-east-1.dtcc.com -Dhttps.proxyPort=8080 -Dhttp.proxy=proxy-dev-us-east-1.dtcc.com -Dhttp.proxyPort=8080"
+		                 ,"CAL_API_URI"    : "https://w0t4yqzoj0.execute-api.us-east-1.amazonaws.com/dev"
+		                 ,"CAL_API_URI_TEST" : "https://w0t4yqzoj0.execute-api.us-east-1.amazonaws.com/TEST"
+		                 ,"RDS_PAT_DBNAME" : "patatsd"
+		                 ,"RDS_PAT_USERKEY" : "AQICAHjJRh01Kuvo4xN/nj8+7joiHU/gFP2V2y3dX1bdDssyGQH2S1N//WqABg56q1BvezacAAAAZjBkBgkqhkiG9w0BBwagVzBVAgEAMFAGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMMVhtzQzEM1BVWc47AgEQgCPLaKDG7FfgBmnXotEPb/iPlvWzawwlX/R9tpGyFMhCAqlRdw=="
+		                 ,"RDS_PAT_USERNAME": "AQICAHjJRh01Kuvo4xN/nj8+7joiHU/gFP2V2y3dX1bdDssyGQFOFM4Z2T+GRDh527crhSHQAAAAczBxBgkqhkiG9w0BBwagZDBiAgEAMF0GCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMmWawhy3HhbcmQxmGAgEQgDBlZlw569UxgYVAPmm5Md52qK+flU8+KtdjkpyD2I0COJJ5Yccp8mP5JHjm92Z9eQM=" 
+		                 ,"RDS_PAT_HOSTNAME" : "pat-aps-dbdev.cluster-c5kpwfu6t80w.us-east-1.rds.amazonaws.com"
+		                 ,"RDS_PAT_PORT"     : 5480]
+		                 
+		 	def qaEnvMap = ["s3" : "https://s3.amazonaws.com/pat-dev-pipe1-acatsappstorage-us-east-1/Deployment/pat-1.0.0-intraday.zip"
+		                 ,"JAVA_TOOL_OPTIONS" : "-Dhttps.proxyHost=proxy-dev-us-east-1.dtcc.com -Dhttps.proxyPort=8080 -Dhttp.proxy=proxy-dev-us-east-1.dtcc.com -Dhttp.proxyPort=8080"
+		                 ,"CAL_API_URI"    : "https://w0t4yqzoj0.execute-api.us-east-1.amazonaws.com/dev"
+		                 ,"CAL_API_URI_TEST" : "https://w0t4yqzoj0.execute-api.us-east-1.amazonaws.com/TEST"
+		                 ,"RDS_PAT_DBNAME" : "patatsd"
+		                 ,"RDS_PAT_USERKEY" : "AQICAHjJRh01Kuvo4xN/nj8+7joiHU/gFP2V2y3dX1bdDssyGQH2S1N//WqABg56q1BvezacAAAAZjBkBgkqhkiG9w0BBwagVzBVAgEAMFAGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMMVhtzQzEM1BVWc47AgEQgCPLaKDG7FfgBmnXotEPb/iPlvWzawwlX/R9tpGyFMhCAqlRdw=="
+		                 ,"RDS_PAT_USERNAME": "AQICAHjJRh01Kuvo4xN/nj8+7joiHU/gFP2V2y3dX1bdDssyGQFOFM4Z2T+GRDh527crhSHQAAAAczBxBgkqhkiG9w0BBwagZDBiAgEAMF0GCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMmWawhy3HhbcmQxmGAgEQgDBlZlw569UxgYVAPmm5Md52qK+flU8+KtdjkpyD2I0COJJ5Yccp8mP5JHjm92Z9eQM=" 
+		                 ,"RDS_PAT_HOSTNAME" : "pat-aps-dbdev.cluster-c5kpwfu6t80w.us-east-1.rds.amazonaws.com"
+		                 ,"RDS_PAT_PORT"     : 5480]
+        
+		codeBucketMap = [dev: 'pat-dev-pipe1-acatsappstorage-us-east-1', qa: 'pat-qa-pipe1-acatsappstorage-us-east-1', pse: 'pat-pse-pipe1-acatsappstorage-us-east-1', prod: 'pat-prod-pipe1-acatsappstorage-us-east-1']
+		
+		bucketname = codeBucketMap["${deployEnv}"]
+		
+		//def kmsMap = [dev: '00f85d3f-8f95-4020-be19-568b751e3fcc']
+	    
+	  //  echo "account number for ${envParam} .... ${deployEnv} : ${accountMap["${deployEnv}"]}"
+		
+	
+	  // echo "S3 bucket name : ${bucketname}"
+	  // push deployment file to s3
+     
+	   switch("${process_name}") {
+	   case "sod":
+	       echo "sod"
+	       sh "aws s3api put-object --bucket ${bucketname} --key Deployment/pat-1.0.0-sod.zip --body ${env.WORKSPACE}/target/pat-1.0.0-sod.zip --server-side-encryption AES256" 
+	       break
+	   case "intraday":
+	        echo "intraday"
+	        sh "aws s3api put-object --bucket ${bucketname} --key Deployment/pat-1.0.0-intraday.zip --body ${env.WORKSPACE}/target/pat-1.0.0-intraday.zip --server-side-encryption AES256" 
+	        break
+	        
+	   default:
+	    echo "all"
+	    
+	     sh "aws s3api put-object --bucket ${bucketname} --key Deployment/pat-1.0.0-sod.zip --body ${env.WORKSPACE}/target/pat-1.0.0-sod.zip --server-side-encryption AES256" 
+	     sh "aws s3api put-object --bucket ${bucketname} --key Deployment/pat-1.0.0-intraday.zip --body ${env.WORKSPACE}/target/pat-1.0.0-intraday.zip --server-side-encryption AES256" 
+	   }
+		
+		// update lambda code
+		echo "updating lambda code"
+		
+		if ("${process_name}" == 'sod' || "${process_name}" == 'all'){
+		    echo " Updating ${sodverifydate}, ${sodrollProcessDate} lambda functions from ${bucketname}"
+		 
+	     	 sh "aws lambda update-function-code --function-name ${sodverifydate} --s3-bucket  ${bucketname}  --s3-key Deployment/pat-1.0.0-sod.zip  --publish"
+	     	 sh "aws lambda update-function-code --function-name ${sodrollProcessDate} --s3-bucket  ${bucketname}  --s3-key Deployment/pat-1.0.0-sod.zip  --publish"
+	     	 
+	    // Configure environment variables 	 -- Keep adding new lambdas to the job
+	    echo "updating lambda environment variables for SOD"
+	    
+	    if ("${deployEnv}" == 'dev'){
+	        sh "aws lambda update-function-configuration --function-name $sodverifydate --handler com.dtcc.acats.lambda.VerifyDate --environment Variables=\"{CAL_API_URI=${devEnvMap.get("CAL_API_URI")}}\""
+	        sh "aws lambda update-function-configuration --function-name $sodrollProcessDate --handler com.dtcc.acats.lambda.RollProcessDate --environment Variables=\"{CAL_API_URI=${devEnvMap.get("CAL_API_URI")},JAVA_TOOL_OPTIONS=${devEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${devEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${devEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${devEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${devEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${devEnvMap.get("RDS_PAT_PORT")}}\""
+	    } 
+	    if ("${deployEnv}" == 'qa'){
+	        
+	        sh "aws lambda update-function-configuration --function-name $sodverifydate --handler com.dtcc.acats.lambda.VerifyDate --environment Variables=\"{CAL_API_URI=${qaEnvMap.get("CAL_API_URI")}}\""
+	        sh "aws lambda update-function-configuration --function-name $sodrollProcessDate --handler com.dtcc.acats.lambda.RollProcessDate --environment Variables=\"{CAL_API_URI=${qaEnvMap.get("CAL_API_URI")},JAVA_TOOL_OPTIONS=${qaEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${qaEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${qaEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${qaEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${qaEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${qaEnvMap.get("RDS_PAT_PORT")}}\""
+		}
+	     	 
+		}
+		
+		if ("${process_name}" == 'intraday' || "${process_name}" == 'all') {
+		    
+		    echo " Updating ${intradayreceivefile}, ${processfixedfile},${processvariablefile},${processactiongroup},${fileGatekeeper},${fileSweeper},${fileSweeperPublisher},${fileProcessor} lambda functions from ${bucketname}"
+		    
+		    sh "aws lambda update-function-code --function-name ${intradayreceivefile} --s3-bucket  ${bucketname}  --s3-key Deployment/pat-1.0.0-intraday.zip  --publish"
+		    sh "aws lambda update-function-code --function-name ${processfixedfile} --s3-bucket  ${bucketname}  --s3-key Deployment/pat-1.0.0-intraday.zip  --publish"
+		    sh "aws lambda update-function-code --function-name ${processvariablefile} --s3-bucket  ${bucketname}  --s3-key Deployment/pat-1.0.0-intraday.zip  --publish"
+		    sh "aws lambda update-function-code --function-name ${processactiongroup} --s3-bucket  ${bucketname}  --s3-key Deployment/pat-1.0.0-intraday.zip  --publish"
+		    sh "aws lambda update-function-code --function-name ${fileGatekeeper} --s3-bucket  ${bucketname}  --s3-key Deployment/pat-1.0.0-intraday.zip  --publish"
+		    sh "aws lambda update-function-code --function-name ${fileSweeper} --s3-bucket  ${bucketname}  --s3-key Deployment/pat-1.0.0-intraday.zip  --publish"
+		    sh "aws lambda update-function-code --function-name ${fileSweeperPublisher} --s3-bucket  ${bucketname}  --s3-key Deployment/pat-1.0.0-intraday.zip  --publish"
+		    
+		    sh "aws lambda update-function-code --function-name ${updateApplState} --s3-bucket  ${bucketname}  --s3-key Deployment/pat-1.0.0-intraday.zip  --publish"
+		    sh "aws lambda update-function-code --function-name ${applStatePublisher} --s3-bucket  ${bucketname}  --s3-key Deployment/pat-1.0.0-intraday.zip  --publish"
+		    
+		    sh "aws lambda update-function-code --function-name ${fileProcessor} --s3-bucket  ${bucketname}  --s3-key Deployment/pat-1.0.0-intraday.zip  --publish"
+		    
+		    //Update environment variables -- Keep adding new lambdas to the job  
+		    echo "updating lambda environment variables for intraday"
+		    
+		    if ("${deployEnv}" == 'dev'){ 
+		        sh "aws lambda update-function-configuration --function-name $intradayreceivefile --handler com.dtcc.acats.lambda.ReceiveFile --environment Variables=\"{JAVA_TOOL_OPTIONS=${devEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${devEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${devEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${devEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${devEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${devEnvMap.get("RDS_PAT_PORT")}}\""
+		        sh "aws lambda update-function-configuration --function-name $processfixedfile --handler com.dtcc.acats.lambda.TIParseFixed --environment Variables=\"{JAVA_TOOL_OPTIONS=${devEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${devEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${devEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${devEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${devEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${devEnvMap.get("RDS_PAT_PORT")}}\""
+		        sh "aws lambda update-function-configuration --function-name $processvariablefile --handler com.dtcc.acats.lambda.TIParseVariable --environment Variables=\"{JAVA_TOOL_OPTIONS=${devEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${devEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${devEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${devEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${devEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${devEnvMap.get("RDS_PAT_PORT")}}\""
+		        sh "aws lambda update-function-configuration --function-name $processactiongroup --handler com.dtcc.acats.lambda.ProcessActionGroup --environment Variables=\"{JAVA_TOOL_OPTIONS=${devEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${devEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${devEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${devEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${devEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${devEnvMap.get("RDS_PAT_PORT")}}\""
+		        sh "aws lambda update-function-configuration --function-name $fileGatekeeper --handler com.dtcc.acats.lambda.AdmitFile --environment Variables=\"{JAVA_TOOL_OPTIONS=${devEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${devEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${devEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${devEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${devEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${devEnvMap.get("RDS_PAT_PORT")}}\""
+		        sh "aws lambda update-function-configuration --function-name $fileSweeper --handler com.dtcc.acats.lambda.FileSweeper --environment Variables=\"{JAVA_TOOL_OPTIONS=${devEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${devEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${devEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${devEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${devEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${devEnvMap.get("RDS_PAT_PORT")}}\""
+		        sh "aws lambda update-function-configuration --function-name $fileSweeperPublisher --handler com.dtcc.acats.lambda.FileSweeperPublisher --environment Variables=\"{JAVA_TOOL_OPTIONS=${devEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${devEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${devEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${devEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${devEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${devEnvMap.get("RDS_PAT_PORT")}}\""
+		        
+		        sh "aws lambda update-function-configuration --function-name $updateApplState --handler com.dtcc.acats.lambda.UpdateApplState --environment Variables=\"{JAVA_TOOL_OPTIONS=${devEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${devEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${devEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${devEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${devEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${devEnvMap.get("RDS_PAT_PORT")}}\""
+		        sh "aws lambda update-function-configuration --function-name $applStatePublisher --handler com.dtcc.acats.lambda.ApplStatePublisher --environment Variables=\"{JAVA_TOOL_OPTIONS=${devEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${devEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${devEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${devEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${devEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${devEnvMap.get("RDS_PAT_PORT")}}\""
+		        
+		        sh "aws lambda update-function-configuration --function-name $fileProcessor --handler com.dtcc.acats.lambda.ProcessFile --environment Variables=\"{JAVA_TOOL_OPTIONS=${devEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${devEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${devEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${devEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${devEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${devEnvMap.get("RDS_PAT_PORT")}}\""
+		    }
+		    
+		    if ("${deployEnv}" == 'qa'){
+	           sh "aws lambda update-function-configuration --function-name $intradayreceivefile --handler com.dtcc.acats.lambda.ReceiveFile --environment Variables=\"{JAVA_TOOL_OPTIONS=${qaEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${qaEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${qaEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${qaEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${qaEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${qaEnvMap.get("RDS_PAT_PORT")}}\""
+	           sh "aws lambda update-function-configuration --function-name $processfixedfile --handler com.dtcc.acats.lambda.TIParseFixed --environment Variables=\"{JAVA_TOOL_OPTIONS=${qaEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${qaEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${qaEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${qaEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${qaEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${qaEnvMap.get("RDS_PAT_PORT")}}\""
+	           sh "aws lambda update-function-configuration --function-name $processvariablefile --handler com.dtcc.acats.lambda.TIParseVariable --environment Variables=\"{JAVA_TOOL_OPTIONS=${qaEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${qaEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${qaEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${qaEnvMap.get("RDS_PAT_USERNAME")},{RDS_PAT_HOSTNAME=${qaEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${qaEnvMap.get("RDS_PAT_PORT")}}\""
+	           sh "aws lambda update-function-configuration --function-name $processactiongroup --handler com.dtcc.acats.lambda.ProcessActionGroup --environment Variables=\"{JAVA_TOOL_OPTIONS=${qaEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${qaEnvMap.get("RDS_PAT_DBNAME")}},{RDS_PAT_USERKEY=${qaEnvMap.get("RDS_PAT_USERKEY")}},{RDS_PAT_USERNAME=${qaEnvMap.get("RDS_PAT_USERNAME")}},{RDS_PAT_HOSTNAME=${qaEnvMap.get("RDS_PAT_HOSTNAME")}},{RDS_PAT_PORT=${qaEnvMap.get("RDS_PAT_PORT")}}\""
+	           sh "aws lambda update-function-configuration --function-name $fileGatekeeper --handler com.dtcc.acats.lambda.AdmitFile --environment Variables=\"{JAVA_TOOL_OPTIONS=${qaEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${qaEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${qaEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${qaEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${qaEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${qaEnvMap.get("RDS_PAT_PORT")}}\""
+	           sh "aws lambda update-function-configuration --function-name $fileSweeper --handler com.dtcc.acats.lambda.FileSweeper --environment Variables=\"{JAVA_TOOL_OPTIONS=${qaEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${qaEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${qaEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${qaEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${qaEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${qaEnvMap.get("RDS_PAT_PORT")}}\""
+	           sh "aws lambda update-function-configuration --function-name $fileSweeperPublisher --handler com.dtcc.acats.lambda.FileSweeperPublisher --environment Variables=\"{JAVA_TOOL_OPTIONS=${qaEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${qaEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${qaEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${qaEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${qaEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${qaEnvMap.get("RDS_PAT_PORT")}}\""
+	           
+	           sh "aws lambda update-function-configuration --function-name $updateApplState --handler com.dtcc.acats.lambda.UpdateApplState --environment Variables=\"{JAVA_TOOL_OPTIONS=${qaEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${qaEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${qaEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${qaEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${qaEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${qaEnvMap.get("RDS_PAT_PORT")}}\""
+	           sh "aws lambda update-function-configuration --function-name $applStatePublisher --handler com.dtcc.acats.lambda.ApplStatePublisher --environment Variables=\"{JAVA_TOOL_OPTIONS=${qaEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${qaEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${qaEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${qaEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${qaEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${qaEnvMap.get("RDS_PAT_PORT")}}\""
+	           
+	           sh "aws lambda update-function-configuration --function-name $fileProcessor --handler com.dtcc.acats.lambda.ProcessFile --environment Variables=\"{JAVA_TOOL_OPTIONS=${qaEnvMap.get("JAVA_TOOL_OPTIONS")},RDS_PAT_DBNAME=${qaEnvMap.get("RDS_PAT_DBNAME")},RDS_PAT_USERKEY=${qaEnvMap.get("RDS_PAT_USERKEY")},RDS_PAT_USERNAME=${qaEnvMap.get("RDS_PAT_USERNAME")},RDS_PAT_HOSTNAME=${qaEnvMap.get("RDS_PAT_HOSTNAME")},RDS_PAT_PORT=${qaEnvMap.get("RDS_PAT_PORT")}}\""
+	        
+	        }
+		} 
+	
+	
+	  }
+	}
