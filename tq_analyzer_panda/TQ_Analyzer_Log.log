@@ -1,0 +1,795 @@
+2018-11-27 17:06:32,047 {main.py:97} TQ Analyzer Started Analyzing the data from path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:32,047 {main.py:121} Already directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU exist, so remove it
+2018-11-27 17:06:32,047 {main.py:127} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU deleted
+2018-11-27 17:06:32,047 {main.py:132} listout the directory in C:\project\TQClient\TQFiles\TQ_DATA_1537792295157 and capture each of the server name folder in a list called servers
+2018-11-27 17:06:32,047 {main.py:134} servers found in C:\project\TQClient\TQFiles\TQ_DATA_1537792295157 are ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:06:32,062 {main.py:261} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU not found
+2018-11-27 17:06:32,062 {main.py:267} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU created
+2018-11-27 17:06:32,062 {main.py:261} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Memory not found
+2018-11-27 17:06:32,062 {main.py:267} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Memory created
+2018-11-27 17:06:32,062 {main.py:261} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Swap not found
+2018-11-27 17:06:32,062 {main.py:267} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Swap created
+2018-11-27 17:06:32,062 {main.py:261} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk not found
+2018-11-27 17:06:32,062 {main.py:267} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk created
+2018-11-27 17:06:32,062 {main.py:261} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk_Response not found
+2018-11-27 17:06:32,062 {main.py:267} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk_Response created
+2018-11-27 17:06:32,109 {main.py:284} Accuracy file created with header
+2018-11-27 17:06:32,109 {main.py:290} Call the function cpu with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:32,109 {main.py:154} Start the CPU Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:06:32,109 {main.py:156} Analyze the CPU for server sawasq05
+2018-11-27 17:06:32,109 {main.py:160} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv
+2018-11-27 17:06:32,109 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv
+2018-11-27 17:06:32,109 {main.py:163} call the CPU analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:32,109 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:180} Started for analyzing server sawasq05 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:32,499 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:186} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv and the interval is 5
+2018-11-27 17:06:32,546 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:190} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv and the interval is 5
+2018-11-27 17:06:32,546 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:201} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv and the result is None
+2018-11-27 17:06:32,546 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:205} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv and the result is None
+2018-11-27 17:06:32,546 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:141} Call the CPU analyzer, server sawasq05, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:06:33,045 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:158} call cpu_analyzer_call with server sawasq05, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:06:33,482 {main.py:165} Result captured - status is - WARN
+2018-11-27 17:06:33,482 {main.py:149} Update the report  based on server sawasq05 and based on the metrics column CPU_Util and CPU Queue  and assign the value WARN
+2018-11-27 17:06:33,482 {main.py:167} status added into report
+2018-11-27 17:06:33,482 {main.py:156} Analyze the CPU for server sawasq06
+2018-11-27 17:06:33,482 {main.py:160} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv
+2018-11-27 17:06:33,482 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv
+2018-11-27 17:06:33,482 {main.py:163} call the CPU analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:33,482 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:180} Started for analyzing server sawasq06 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:33,545 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:186} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv and the interval is 5
+2018-11-27 17:06:33,591 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:190} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv and the interval is 5
+2018-11-27 17:06:33,591 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:201} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv and the result is None
+2018-11-27 17:06:33,591 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:205} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv and the result is None
+2018-11-27 17:06:33,591 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:141} Call the CPU analyzer, server sawasq06, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:06:34,016 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:158} call cpu_analyzer_call with server sawasq06, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:06:34,409 {main.py:165} Result captured - status is - WARN
+2018-11-27 17:06:34,409 {main.py:149} Update the report  based on server sawasq06 and based on the metrics column CPU_Util and CPU Queue  and assign the value WARN
+2018-11-27 17:06:34,409 {main.py:167} status added into report
+2018-11-27 17:06:34,409 {main.py:156} Analyze the CPU for server sawasq07
+2018-11-27 17:06:34,409 {main.py:160} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv
+2018-11-27 17:06:34,409 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv
+2018-11-27 17:06:34,409 {main.py:163} call the CPU analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:34,409 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:180} Started for analyzing server sawasq07 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:34,455 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:186} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv and the interval is 5
+2018-11-27 17:06:34,518 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:190} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv and the interval is 5
+2018-11-27 17:06:34,518 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:201} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv and the result is None
+2018-11-27 17:06:34,518 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:205} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv and the result is None
+2018-11-27 17:06:34,518 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:141} Call the CPU analyzer, server sawasq07, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:06:34,923 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:158} call cpu_analyzer_call with server sawasq07, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:06:35,313 {main.py:165} Result captured - status is - OK
+2018-11-27 17:06:35,313 {main.py:149} Update the report  based on server sawasq07 and based on the metrics column CPU_Util and CPU Queue  and assign the value OK
+2018-11-27 17:06:35,313 {main.py:167} status added into report
+2018-11-27 17:06:35,313 {main.py:295} CPU analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:06:35,313 {main.py:301} Call the function memory with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,313 {main.py:178} Start the Memory Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:06:35,313 {main.py:180} Analyze the Memory for server sawasq05
+2018-11-27 17:06:35,313 {main.py:183} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Memory_Util.csv
+2018-11-27 17:06:35,313 {main.py:184} call the memory analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,358 {main.py:186} Result captured - status is - OK
+2018-11-27 17:06:35,358 {main.py:149} Update the report  based on server sawasq05 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:06:35,359 {main.py:188} status added into report
+2018-11-27 17:06:35,359 {main.py:180} Analyze the Memory for server sawasq06
+2018-11-27 17:06:35,360 {main.py:183} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Memory_Util.csv
+2018-11-27 17:06:35,360 {main.py:184} call the memory analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,439 {main.py:186} Result captured - status is - OK
+2018-11-27 17:06:35,439 {main.py:149} Update the report  based on server sawasq06 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:06:35,439 {main.py:188} status added into report
+2018-11-27 17:06:35,439 {main.py:180} Analyze the Memory for server sawasq07
+2018-11-27 17:06:35,439 {main.py:183} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Memory_Util.csv
+2018-11-27 17:06:35,439 {main.py:184} call the memory analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,501 {main.py:186} Result captured - status is - OK
+2018-11-27 17:06:35,501 {main.py:149} Update the report  based on server sawasq07 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:06:35,501 {main.py:188} status added into report
+2018-11-27 17:06:35,501 {main.py:306} Memory analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:06:35,501 {main.py:311} Call the function disk with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,501 {main.py:213} Start the Disk Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:06:35,501 {main.py:215} Analyze the Disk for server sawasq05
+2018-11-27 17:06:35,501 {main.py:218} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Disk_Summary.csv
+2018-11-27 17:06:35,501 {main.py:219} call the Disk analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,579 {main.py:221} Result captured - status is - OK
+2018-11-27 17:06:35,579 {main.py:149} Update the report  based on server sawasq05 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:06:35,595 {main.py:223} status added into report
+2018-11-27 17:06:35,595 {main.py:215} Analyze the Disk for server sawasq06
+2018-11-27 17:06:35,595 {main.py:218} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Disk_Summary.csv
+2018-11-27 17:06:35,595 {main.py:219} call the Disk analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,673 {main.py:221} Result captured - status is - OK
+2018-11-27 17:06:35,673 {main.py:149} Update the report  based on server sawasq06 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:06:35,673 {main.py:223} status added into report
+2018-11-27 17:06:35,673 {main.py:215} Analyze the Disk for server sawasq07
+2018-11-27 17:06:35,673 {main.py:218} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Disk_Summary.csv
+2018-11-27 17:06:35,673 {main.py:219} call the Disk analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,766 {main.py:221} Result captured - status is - OK
+2018-11-27 17:06:35,766 {main.py:149} Update the report  based on server sawasq07 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:06:35,766 {main.py:223} status added into report
+2018-11-27 17:06:35,766 {main.py:316} disk analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:06:35,766 {main.py:321} Call the function disk response with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,766 {main.py:231} Start the Disk Latency Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:06:35,766 {main.py:233} Analyze the Disk Latency for server sawasq05
+2018-11-27 17:06:35,766 {main.py:236} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Disk_Summary.csv
+2018-11-27 17:06:35,766 {main.py:237} call the Disk Latency analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,813 {main.py:239} Result captured - status is - OK
+2018-11-27 17:06:35,813 {main.py:149} Update the report  based on server sawasq05 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:06:35,813 {main.py:241} status added into report
+2018-11-27 17:06:35,813 {main.py:233} Analyze the Disk Latency for server sawasq06
+2018-11-27 17:06:35,813 {main.py:236} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Disk_Summary.csv
+2018-11-27 17:06:35,813 {main.py:237} call the Disk Latency analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,857 {main.py:239} Result captured - status is - OK
+2018-11-27 17:06:35,857 {main.py:149} Update the report  based on server sawasq06 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:06:35,857 {main.py:241} status added into report
+2018-11-27 17:06:35,857 {main.py:233} Analyze the Disk Latency for server sawasq07
+2018-11-27 17:06:35,857 {main.py:236} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Disk_Summary.csv
+2018-11-27 17:06:35,857 {main.py:237} call the Disk Latency analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,904 {main.py:239} Result captured - status is - OK
+2018-11-27 17:06:35,904 {main.py:149} Update the report  based on server sawasq07 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:06:35,904 {main.py:241} status added into report
+2018-11-27 17:06:35,904 {main.py:326} disk response analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:06:35,904 {main.py:332} Call the function swap with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,904 {main.py:195} Start the Swap Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:06:35,904 {main.py:197} Analyze the Swap for server sawasq05
+2018-11-27 17:06:35,904 {main.py:200} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Swap.csv
+2018-11-27 17:06:35,904 {main.py:201} call the swap analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:35,954 {main.py:203} Result captured - status is - OK
+2018-11-27 17:06:35,954 {main.py:149} Update the report  based on server sawasq05 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:06:35,954 {main.py:205} status added into report
+2018-11-27 17:06:35,954 {main.py:197} Analyze the Swap for server sawasq06
+2018-11-27 17:06:35,954 {main.py:200} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Swap.csv
+2018-11-27 17:06:35,954 {main.py:201} call the swap analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:36,016 {main.py:203} Result captured - status is - OK
+2018-11-27 17:06:36,016 {main.py:149} Update the report  based on server sawasq06 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:06:36,016 {main.py:205} status added into report
+2018-11-27 17:06:36,016 {main.py:197} Analyze the Swap for server sawasq07
+2018-11-27 17:06:36,016 {main.py:200} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Swap.csv
+2018-11-27 17:06:36,016 {main.py:201} call the swap analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:36,079 {main.py:203} Result captured - status is - OK
+2018-11-27 17:06:36,079 {main.py:149} Update the report  based on server sawasq07 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:06:36,079 {main.py:205} status added into report
+2018-11-27 17:06:36,079 {main.py:337} Swap analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:06:36,079 {main.py:342} Program going to generate the report
+2018-11-27 17:06:36,094 {main.py:347} Output Generated
+2018-11-27 17:06:36,094 {main.py:356} Error while formatting data
+2018-11-27 17:06:36,219 {main.py:361} C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:36,219 {main.py:363} <_sre.SRE_Match object; span=(0, 49), match='C:\\project\\TQClient\\TQFiles\\TQ_DATA_153779229>
+2018-11-27 17:06:36,219 {main.py:364} re searchg group 0 C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:06:36,219 {main.py:365} re searchg group 1 project\TQClient\TQFiles
+2018-11-27 17:06:36,219 {main.py:366} re searchg group 2 TQ_DATA_1537792295157
+2018-11-27 17:06:36,219 {main.py:374} ssheikga
+2018-11-27 17:06:36,219 {main.py:378} C:/jenkins/data/workspace/epe-dev/TQ_Automation_Analyzer/TQ_DATA_1537792295157
+2018-11-27 17:06:36,281 {main.py:385} Archieve success file placed in ShareDrive
+2018-11-27 17:22:16,324 {main.py:97} TQ Analyzer Started Analyzing the data from path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:23:57,082 {main.py:97} TQ Analyzer Started Analyzing the data from path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:23:57,082 {main.py:123} Already directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU exist, so remove it
+2018-11-27 17:23:57,082 {main.py:129} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU deleted
+2018-11-27 17:23:57,082 {main.py:134} listout the directory in C:\project\TQClient\TQFiles\TQ_DATA_1537792295157 and capture each of the server name folder in a list called servers
+2018-11-27 17:23:57,082 {main.py:136} servers found in C:\project\TQClient\TQFiles\TQ_DATA_1537792295157 are ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:23:57,082 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU not found
+2018-11-27 17:23:57,082 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU created
+2018-11-27 17:23:57,082 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Memory not found
+2018-11-27 17:23:57,082 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Memory created
+2018-11-27 17:23:57,082 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Swap not found
+2018-11-27 17:23:57,082 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Swap created
+2018-11-27 17:23:57,082 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk not found
+2018-11-27 17:23:57,082 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk created
+2018-11-27 17:23:57,082 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk_Response not found
+2018-11-27 17:23:57,082 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk_Response created
+2018-11-27 17:23:57,082 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts not found
+2018-11-27 17:23:57,082 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts created
+2018-11-27 17:23:57,129 {main.py:286} Accuracy file created with header
+2018-11-27 17:23:57,129 {main.py:292} Call the function cpu with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:23:57,129 {main.py:156} Start the CPU Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:23:57,129 {main.py:158} Analyze the CPU for server sawasq05
+2018-11-27 17:23:57,129 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv
+2018-11-27 17:23:57,129 {main.py:164} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv
+2018-11-27 17:23:57,129 {main.py:165} call the CPU analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:23:57,129 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:181} Started for analyzing server sawasq05 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:23:57,534 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:187} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv and the interval is 5
+2018-11-27 17:23:57,581 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:191} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv and the interval is 5
+2018-11-27 17:23:57,581 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:202} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv and the result is None
+2018-11-27 17:23:57,581 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:206} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv and the result is None
+2018-11-27 17:23:57,581 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:142} Call the CPU analyzer, server sawasq05, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:23:58,035 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:159} call cpu_analyzer_call with server sawasq05, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:23:58,442 {main.py:167} Result captured - status is - WARN
+2018-11-27 17:23:58,442 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column CPU_Util and CPU Queue  and assign the value WARN
+2018-11-27 17:23:58,442 {main.py:169} status added into report
+2018-11-27 17:23:58,442 {main.py:158} Analyze the CPU for server sawasq06
+2018-11-27 17:23:58,442 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv
+2018-11-27 17:23:58,442 {main.py:164} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv
+2018-11-27 17:23:58,442 {main.py:165} call the CPU analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:23:58,442 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:181} Started for analyzing server sawasq06 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:23:58,489 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:187} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv and the interval is 5
+2018-11-27 17:23:58,536 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:191} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv and the interval is 5
+2018-11-27 17:23:58,536 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:202} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv and the result is None
+2018-11-27 17:23:58,536 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:206} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv and the result is None
+2018-11-27 17:23:58,536 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:142} Call the CPU analyzer, server sawasq06, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:23:58,980 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:159} call cpu_analyzer_call with server sawasq06, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:23:59,370 {main.py:167} Result captured - status is - WARN
+2018-11-27 17:23:59,370 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column CPU_Util and CPU Queue  and assign the value WARN
+2018-11-27 17:23:59,370 {main.py:169} status added into report
+2018-11-27 17:23:59,370 {main.py:158} Analyze the CPU for server sawasq07
+2018-11-27 17:23:59,370 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv
+2018-11-27 17:23:59,370 {main.py:164} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv
+2018-11-27 17:23:59,370 {main.py:165} call the CPU analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:23:59,370 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:181} Started for analyzing server sawasq07 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:23:59,417 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:187} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv and the interval is 5
+2018-11-27 17:23:59,464 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:191} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv and the interval is 5
+2018-11-27 17:23:59,464 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:202} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv and the result is None
+2018-11-27 17:23:59,464 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:206} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv and the result is None
+2018-11-27 17:23:59,464 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:142} Call the CPU analyzer, server sawasq07, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:23:59,854 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:159} call cpu_analyzer_call with server sawasq07, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:24:00,271 {main.py:167} Result captured - status is - OK
+2018-11-27 17:24:00,271 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column CPU_Util and CPU Queue  and assign the value OK
+2018-11-27 17:24:00,271 {main.py:169} status added into report
+2018-11-27 17:24:00,271 {main.py:297} CPU analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:24:00,271 {main.py:303} Call the function memory with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,271 {main.py:180} Start the Memory Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:24:00,271 {main.py:182} Analyze the Memory for server sawasq05
+2018-11-27 17:24:00,271 {main.py:185} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Memory_Util.csv
+2018-11-27 17:24:00,271 {main.py:186} call the memory analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,333 {main.py:188} Result captured - status is - OK
+2018-11-27 17:24:00,333 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:24:00,333 {main.py:190} status added into report
+2018-11-27 17:24:00,333 {main.py:182} Analyze the Memory for server sawasq06
+2018-11-27 17:24:00,333 {main.py:185} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Memory_Util.csv
+2018-11-27 17:24:00,333 {main.py:186} call the memory analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,380 {main.py:188} Result captured - status is - OK
+2018-11-27 17:24:00,380 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:24:00,380 {main.py:190} status added into report
+2018-11-27 17:24:00,380 {main.py:182} Analyze the Memory for server sawasq07
+2018-11-27 17:24:00,380 {main.py:185} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Memory_Util.csv
+2018-11-27 17:24:00,380 {main.py:186} call the memory analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,427 {main.py:188} Result captured - status is - OK
+2018-11-27 17:24:00,427 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:24:00,427 {main.py:190} status added into report
+2018-11-27 17:24:00,427 {main.py:308} Memory analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:24:00,427 {main.py:313} Call the function disk with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,427 {main.py:215} Start the Disk Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:24:00,427 {main.py:217} Analyze the Disk for server sawasq05
+2018-11-27 17:24:00,427 {main.py:220} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Disk_Summary.csv
+2018-11-27 17:24:00,427 {main.py:221} call the Disk analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,505 {main.py:223} Result captured - status is - OK
+2018-11-27 17:24:00,505 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:24:00,505 {main.py:225} status added into report
+2018-11-27 17:24:00,505 {main.py:217} Analyze the Disk for server sawasq06
+2018-11-27 17:24:00,505 {main.py:220} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Disk_Summary.csv
+2018-11-27 17:24:00,505 {main.py:221} call the Disk analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,583 {main.py:223} Result captured - status is - OK
+2018-11-27 17:24:00,583 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:24:00,583 {main.py:225} status added into report
+2018-11-27 17:24:00,583 {main.py:217} Analyze the Disk for server sawasq07
+2018-11-27 17:24:00,583 {main.py:220} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Disk_Summary.csv
+2018-11-27 17:24:00,583 {main.py:221} call the Disk analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,661 {main.py:223} Result captured - status is - OK
+2018-11-27 17:24:00,661 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:24:00,661 {main.py:225} status added into report
+2018-11-27 17:24:00,661 {main.py:318} disk analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:24:00,661 {main.py:323} Call the function disk response with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,661 {main.py:233} Start the Disk Latency Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:24:00,661 {main.py:235} Analyze the Disk Latency for server sawasq05
+2018-11-27 17:24:00,661 {main.py:238} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Disk_Summary.csv
+2018-11-27 17:24:00,661 {main.py:239} call the Disk Latency analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,707 {main.py:241} Result captured - status is - OK
+2018-11-27 17:24:00,707 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:24:00,707 {main.py:243} status added into report
+2018-11-27 17:24:00,707 {main.py:235} Analyze the Disk Latency for server sawasq06
+2018-11-27 17:24:00,707 {main.py:238} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Disk_Summary.csv
+2018-11-27 17:24:00,707 {main.py:239} call the Disk Latency analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,754 {main.py:241} Result captured - status is - OK
+2018-11-27 17:24:00,754 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:24:00,754 {main.py:243} status added into report
+2018-11-27 17:24:00,754 {main.py:235} Analyze the Disk Latency for server sawasq07
+2018-11-27 17:24:00,754 {main.py:238} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Disk_Summary.csv
+2018-11-27 17:24:00,754 {main.py:239} call the Disk Latency analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,801 {main.py:241} Result captured - status is - OK
+2018-11-27 17:24:00,801 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:24:00,801 {main.py:243} status added into report
+2018-11-27 17:24:00,801 {main.py:328} disk response analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:24:00,801 {main.py:334} Call the function swap with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,801 {main.py:197} Start the Swap Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:24:00,801 {main.py:199} Analyze the Swap for server sawasq05
+2018-11-27 17:24:00,801 {main.py:202} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Swap.csv
+2018-11-27 17:24:00,801 {main.py:203} call the swap analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,848 {main.py:205} Result captured - status is - OK
+2018-11-27 17:24:00,848 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:24:00,848 {main.py:207} status added into report
+2018-11-27 17:24:00,848 {main.py:199} Analyze the Swap for server sawasq06
+2018-11-27 17:24:00,848 {main.py:202} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Swap.csv
+2018-11-27 17:24:00,848 {main.py:203} call the swap analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,899 {main.py:205} Result captured - status is - OK
+2018-11-27 17:24:00,899 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:24:00,899 {main.py:207} status added into report
+2018-11-27 17:24:00,899 {main.py:199} Analyze the Swap for server sawasq07
+2018-11-27 17:24:00,899 {main.py:202} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Swap.csv
+2018-11-27 17:24:00,899 {main.py:203} call the swap analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:00,945 {main.py:205} Result captured - status is - OK
+2018-11-27 17:24:00,945 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:24:00,945 {main.py:207} status added into report
+2018-11-27 17:24:00,945 {main.py:339} Swap analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:24:00,945 {main.py:344} Program going to generate the report
+2018-11-27 17:24:00,945 {main.py:349} Output Generated
+2018-11-27 17:24:00,961 {main.py:358} Error while formatting data
+2018-11-27 17:24:01,043 {main.py:363} C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:01,043 {main.py:365} <_sre.SRE_Match object; span=(0, 49), match='C:\\project\\TQClient\\TQFiles\\TQ_DATA_153779229>
+2018-11-27 17:24:01,043 {main.py:366} re searchg group 0 C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:24:01,043 {main.py:367} re searchg group 1 project\TQClient\TQFiles
+2018-11-27 17:24:01,043 {main.py:368} re searchg group 2 TQ_DATA_1537792295157
+2018-11-27 17:24:01,043 {main.py:376} ssheikga
+2018-11-27 17:24:01,059 {main.py:380} C:/jenkins/data/workspace/epe-dev/TQ_Automation_Analyzer/TQ_DATA_1537792295157
+2018-11-27 17:24:01,140 {main.py:387} Archieve success file placed in ShareDrive
+2018-11-27 17:25:10,055 {main.py:97} TQ Analyzer Started Analyzing the data from path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:10,055 {main.py:123} Already directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU exist, so remove it
+2018-11-27 17:25:10,055 {main.py:129} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU deleted
+2018-11-27 17:25:10,055 {main.py:123} Already directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts exist, so remove it
+2018-11-27 17:25:10,055 {main.py:129} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts deleted
+2018-11-27 17:25:10,055 {main.py:134} listout the directory in C:\project\TQClient\TQFiles\TQ_DATA_1537792295157 and capture each of the server name folder in a list called servers
+2018-11-27 17:25:10,055 {main.py:136} servers found in C:\project\TQClient\TQFiles\TQ_DATA_1537792295157 are ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:25:10,055 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU not found
+2018-11-27 17:25:10,055 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU created
+2018-11-27 17:25:10,055 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Memory not found
+2018-11-27 17:25:10,055 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Memory created
+2018-11-27 17:25:10,055 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Swap not found
+2018-11-27 17:25:10,055 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Swap created
+2018-11-27 17:25:10,055 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk not found
+2018-11-27 17:25:10,055 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk created
+2018-11-27 17:25:10,055 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk_Response not found
+2018-11-27 17:25:10,071 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk_Response created
+2018-11-27 17:25:10,071 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts not found
+2018-11-27 17:25:10,071 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts created
+2018-11-27 17:25:10,087 {main.py:286} Accuracy file created with header
+2018-11-27 17:25:10,087 {main.py:292} Call the function cpu with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:10,087 {main.py:156} Start the CPU Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:25:10,087 {main.py:158} Analyze the CPU for server sawasq05
+2018-11-27 17:25:10,087 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv
+2018-11-27 17:25:10,087 {main.py:164} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv
+2018-11-27 17:25:10,087 {main.py:165} call the CPU analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:10,087 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:181} Started for analyzing server sawasq05 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:10,509 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:187} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv and the interval is 5
+2018-11-27 17:25:10,555 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:191} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv and the interval is 5
+2018-11-27 17:25:10,555 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:202} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv and the result is None
+2018-11-27 17:25:10,555 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:206} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv and the result is None
+2018-11-27 17:25:10,555 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:142} Call the CPU analyzer, server sawasq05, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:25:11,014 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:159} call cpu_analyzer_call with server sawasq05, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:25:11,450 {main.py:167} Result captured - status is - WARN
+2018-11-27 17:25:11,466 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column CPU_Util and CPU Queue  and assign the value WARN
+2018-11-27 17:25:11,466 {main.py:169} status added into report
+2018-11-27 17:25:11,466 {main.py:158} Analyze the CPU for server sawasq06
+2018-11-27 17:25:11,466 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv
+2018-11-27 17:25:11,466 {main.py:164} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv
+2018-11-27 17:25:11,466 {main.py:165} call the CPU analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:11,466 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:181} Started for analyzing server sawasq06 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:11,513 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:187} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv and the interval is 5
+2018-11-27 17:25:11,560 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:191} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv and the interval is 5
+2018-11-27 17:25:11,560 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:202} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv and the result is None
+2018-11-27 17:25:11,560 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:206} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv and the result is None
+2018-11-27 17:25:11,560 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:142} Call the CPU analyzer, server sawasq06, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:25:11,976 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:159} call cpu_analyzer_call with server sawasq06, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:25:12,383 {main.py:167} Result captured - status is - WARN
+2018-11-27 17:25:12,383 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column CPU_Util and CPU Queue  and assign the value WARN
+2018-11-27 17:25:12,383 {main.py:169} status added into report
+2018-11-27 17:25:12,383 {main.py:158} Analyze the CPU for server sawasq07
+2018-11-27 17:25:12,383 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv
+2018-11-27 17:25:12,383 {main.py:164} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv
+2018-11-27 17:25:12,383 {main.py:165} call the CPU analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:12,383 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:181} Started for analyzing server sawasq07 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:12,430 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:187} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv and the interval is 5
+2018-11-27 17:25:12,477 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:191} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv and the interval is 5
+2018-11-27 17:25:12,477 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:202} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv and the result is None
+2018-11-27 17:25:12,477 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:206} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv and the result is None
+2018-11-27 17:25:12,477 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:142} Call the CPU analyzer, server sawasq07, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:25:12,865 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:159} call cpu_analyzer_call with server sawasq07, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:25:13,286 {main.py:167} Result captured - status is - OK
+2018-11-27 17:25:13,286 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column CPU_Util and CPU Queue  and assign the value OK
+2018-11-27 17:25:13,286 {main.py:169} status added into report
+2018-11-27 17:25:13,286 {main.py:297} CPU analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:25:13,286 {main.py:303} Call the function memory with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,286 {main.py:180} Start the Memory Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:25:13,286 {main.py:182} Analyze the Memory for server sawasq05
+2018-11-27 17:25:13,286 {main.py:185} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Memory_Util.csv
+2018-11-27 17:25:13,286 {main.py:186} call the memory analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,349 {main.py:188} Result captured - status is - OK
+2018-11-27 17:25:13,349 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:25:13,349 {main.py:190} status added into report
+2018-11-27 17:25:13,349 {main.py:182} Analyze the Memory for server sawasq06
+2018-11-27 17:25:13,349 {main.py:185} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Memory_Util.csv
+2018-11-27 17:25:13,349 {main.py:186} call the memory analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,411 {main.py:188} Result captured - status is - OK
+2018-11-27 17:25:13,411 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:25:13,411 {main.py:190} status added into report
+2018-11-27 17:25:13,411 {main.py:182} Analyze the Memory for server sawasq07
+2018-11-27 17:25:13,411 {main.py:185} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Memory_Util.csv
+2018-11-27 17:25:13,411 {main.py:186} call the memory analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,458 {main.py:188} Result captured - status is - OK
+2018-11-27 17:25:13,458 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:25:13,458 {main.py:190} status added into report
+2018-11-27 17:25:13,458 {main.py:308} Memory analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:25:13,458 {main.py:313} Call the function disk with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,458 {main.py:215} Start the Disk Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:25:13,458 {main.py:217} Analyze the Disk for server sawasq05
+2018-11-27 17:25:13,458 {main.py:220} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Disk_Summary.csv
+2018-11-27 17:25:13,458 {main.py:221} call the Disk analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,536 {main.py:223} Result captured - status is - OK
+2018-11-27 17:25:13,536 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:25:13,551 {main.py:225} status added into report
+2018-11-27 17:25:13,551 {main.py:217} Analyze the Disk for server sawasq06
+2018-11-27 17:25:13,551 {main.py:220} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Disk_Summary.csv
+2018-11-27 17:25:13,551 {main.py:221} call the Disk analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,614 {main.py:223} Result captured - status is - OK
+2018-11-27 17:25:13,614 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:25:13,629 {main.py:225} status added into report
+2018-11-27 17:25:13,629 {main.py:217} Analyze the Disk for server sawasq07
+2018-11-27 17:25:13,629 {main.py:220} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Disk_Summary.csv
+2018-11-27 17:25:13,629 {main.py:221} call the Disk analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,692 {main.py:223} Result captured - status is - OK
+2018-11-27 17:25:13,692 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:25:13,692 {main.py:225} status added into report
+2018-11-27 17:25:13,692 {main.py:318} disk analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:25:13,692 {main.py:323} Call the function disk response with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,692 {main.py:233} Start the Disk Latency Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:25:13,692 {main.py:235} Analyze the Disk Latency for server sawasq05
+2018-11-27 17:25:13,692 {main.py:238} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Disk_Summary.csv
+2018-11-27 17:25:13,692 {main.py:239} call the Disk Latency analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,739 {main.py:241} Result captured - status is - OK
+2018-11-27 17:25:13,739 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:25:13,739 {main.py:243} status added into report
+2018-11-27 17:25:13,739 {main.py:235} Analyze the Disk Latency for server sawasq06
+2018-11-27 17:25:13,739 {main.py:238} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Disk_Summary.csv
+2018-11-27 17:25:13,739 {main.py:239} call the Disk Latency analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,785 {main.py:241} Result captured - status is - OK
+2018-11-27 17:25:13,785 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:25:13,801 {main.py:243} status added into report
+2018-11-27 17:25:13,801 {main.py:235} Analyze the Disk Latency for server sawasq07
+2018-11-27 17:25:13,801 {main.py:238} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Disk_Summary.csv
+2018-11-27 17:25:13,801 {main.py:239} call the Disk Latency analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,832 {main.py:241} Result captured - status is - OK
+2018-11-27 17:25:13,832 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:25:13,832 {main.py:243} status added into report
+2018-11-27 17:25:13,832 {main.py:328} disk response analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:25:13,832 {main.py:334} Call the function swap with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,832 {main.py:197} Start the Swap Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:25:13,832 {main.py:199} Analyze the Swap for server sawasq05
+2018-11-27 17:25:13,832 {main.py:202} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Swap.csv
+2018-11-27 17:25:13,832 {main.py:203} call the swap analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,864 {main.py:205} Result captured - status is - OK
+2018-11-27 17:25:13,864 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:25:13,864 {main.py:207} status added into report
+2018-11-27 17:25:13,864 {main.py:199} Analyze the Swap for server sawasq06
+2018-11-27 17:25:13,864 {main.py:202} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Swap.csv
+2018-11-27 17:25:13,864 {main.py:203} call the swap analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,932 {main.py:205} Result captured - status is - OK
+2018-11-27 17:25:13,932 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:25:13,932 {main.py:207} status added into report
+2018-11-27 17:25:13,932 {main.py:199} Analyze the Swap for server sawasq07
+2018-11-27 17:25:13,932 {main.py:202} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Swap.csv
+2018-11-27 17:25:13,932 {main.py:203} call the swap analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:13,979 {main.py:205} Result captured - status is - OK
+2018-11-27 17:25:13,979 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:25:13,979 {main.py:207} status added into report
+2018-11-27 17:25:13,979 {main.py:339} Swap analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:25:13,979 {main.py:344} Program going to generate the report
+2018-11-27 17:25:13,980 {main.py:349} Output Generated
+2018-11-27 17:25:13,980 {main.py:358} Error while formatting data
+2018-11-27 17:25:14,089 {main.py:363} C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:14,089 {main.py:365} <_sre.SRE_Match object; span=(0, 49), match='C:\\project\\TQClient\\TQFiles\\TQ_DATA_153779229>
+2018-11-27 17:25:14,089 {main.py:366} re searchg group 0 C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:25:14,089 {main.py:367} re searchg group 1 project\TQClient\TQFiles
+2018-11-27 17:25:14,089 {main.py:368} re searchg group 2 TQ_DATA_1537792295157
+2018-11-27 17:25:14,089 {main.py:376} ssheikga
+2018-11-27 17:25:14,089 {main.py:380} C:/jenkins/data/workspace/epe-dev/TQ_Automation_Analyzer/TQ_DATA_1537792295157
+2018-11-27 17:25:14,168 {main.py:387} Archieve success file placed in ShareDrive
+2018-11-27 17:42:36,649 {main.py:97} TQ Analyzer Started Analyzing the data from path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:36,649 {main.py:123} Already directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU exist, so remove it
+2018-11-27 17:42:36,649 {main.py:129} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU deleted
+2018-11-27 17:42:36,649 {main.py:123} Already directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts exist, so remove it
+2018-11-27 17:42:36,665 {main.py:129} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts deleted
+2018-11-27 17:42:36,665 {main.py:134} listout the directory in C:\project\TQClient\TQFiles\TQ_DATA_1537792295157 and capture each of the server name folder in a list called servers
+2018-11-27 17:42:36,665 {main.py:136} servers found in C:\project\TQClient\TQFiles\TQ_DATA_1537792295157 are ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:42:36,665 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU not found
+2018-11-27 17:42:36,665 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU created
+2018-11-27 17:42:36,665 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Memory not found
+2018-11-27 17:42:36,665 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Memory created
+2018-11-27 17:42:36,680 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Swap not found
+2018-11-27 17:42:36,680 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Swap created
+2018-11-27 17:42:36,680 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk not found
+2018-11-27 17:42:36,680 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk created
+2018-11-27 17:42:36,680 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk_Response not found
+2018-11-27 17:42:36,680 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk_Response created
+2018-11-27 17:42:36,680 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts not found
+2018-11-27 17:42:36,680 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts created
+2018-11-27 17:42:36,680 {main.py:286} Accuracy file created with header
+2018-11-27 17:42:36,680 {main.py:292} Call the function cpu with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:36,680 {main.py:156} Start the CPU Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:42:36,680 {main.py:158} Analyze the CPU for server sawasq05
+2018-11-27 17:42:36,680 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv
+2018-11-27 17:42:36,680 {main.py:164} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv
+2018-11-27 17:42:36,680 {main.py:165} call the CPU analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:36,680 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:181} Started for analyzing server sawasq05 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:37,085 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:187} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv and the interval is 5
+2018-11-27 17:42:37,132 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:191} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv and the interval is 5
+2018-11-27 17:42:37,132 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:202} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv and the result is None
+2018-11-27 17:42:37,132 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:206} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv and the result is None
+2018-11-27 17:42:37,132 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:142} Call the CPU analyzer, server sawasq05, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:42:37,576 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:159} call cpu_analyzer_call with server sawasq05, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:42:37,997 {main.py:167} Result captured - status is - WARN
+2018-11-27 17:42:37,997 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column CPU_Util and CPU Queue  and assign the value WARN
+2018-11-27 17:42:38,013 {main.py:169} status added into report
+2018-11-27 17:42:38,013 {main.py:158} Analyze the CPU for server sawasq06
+2018-11-27 17:42:38,013 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv
+2018-11-27 17:42:38,013 {main.py:164} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv
+2018-11-27 17:42:38,013 {main.py:165} call the CPU analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:38,013 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:181} Started for analyzing server sawasq06 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:38,047 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:187} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv and the interval is 5
+2018-11-27 17:42:38,096 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:191} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv and the interval is 5
+2018-11-27 17:42:38,096 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:202} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv and the result is None
+2018-11-27 17:42:38,096 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:206} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv and the result is None
+2018-11-27 17:42:38,096 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:142} Call the CPU analyzer, server sawasq06, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:42:38,548 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:159} call cpu_analyzer_call with server sawasq06, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:42:38,908 {main.py:167} Result captured - status is - WARN
+2018-11-27 17:42:38,908 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column CPU_Util and CPU Queue  and assign the value WARN
+2018-11-27 17:42:38,908 {main.py:169} status added into report
+2018-11-27 17:42:38,908 {main.py:158} Analyze the CPU for server sawasq07
+2018-11-27 17:42:38,908 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv
+2018-11-27 17:42:38,908 {main.py:164} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv
+2018-11-27 17:42:38,908 {main.py:165} call the CPU analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:38,908 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:181} Started for analyzing server sawasq07 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:38,974 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:187} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv and the interval is 5
+2018-11-27 17:42:39,021 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:191} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv and the interval is 5
+2018-11-27 17:42:39,021 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:202} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv and the result is None
+2018-11-27 17:42:39,021 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:206} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv and the result is None
+2018-11-27 17:42:39,021 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:142} Call the CPU analyzer, server sawasq07, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:42:39,414 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:159} call cpu_analyzer_call with server sawasq07, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:42:39,804 {main.py:167} Result captured - status is - OK
+2018-11-27 17:42:39,804 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column CPU_Util and CPU Queue  and assign the value OK
+2018-11-27 17:42:39,804 {main.py:169} status added into report
+2018-11-27 17:42:39,804 {main.py:297} CPU analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:42:39,804 {main.py:303} Call the function memory with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:39,804 {main.py:180} Start the Memory Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:42:39,804 {main.py:182} Analyze the Memory for server sawasq05
+2018-11-27 17:42:39,804 {main.py:185} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Memory_Util.csv
+2018-11-27 17:42:39,804 {main.py:186} call the memory analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:40,367 {main.py:188} Result captured - status is - OK
+2018-11-27 17:42:40,367 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:42:40,367 {main.py:190} status added into report
+2018-11-27 17:42:40,367 {main.py:182} Analyze the Memory for server sawasq06
+2018-11-27 17:42:40,367 {main.py:185} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Memory_Util.csv
+2018-11-27 17:42:40,367 {main.py:186} call the memory analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:40,940 {main.py:188} Result captured - status is - OK
+2018-11-27 17:42:40,940 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:42:40,940 {main.py:190} status added into report
+2018-11-27 17:42:40,940 {main.py:182} Analyze the Memory for server sawasq07
+2018-11-27 17:42:40,940 {main.py:185} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Memory_Util.csv
+2018-11-27 17:42:40,940 {main.py:186} call the memory analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:41,491 {main.py:188} Result captured - status is - OK
+2018-11-27 17:42:41,491 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:42:41,491 {main.py:190} status added into report
+2018-11-27 17:42:41,491 {main.py:308} Memory analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:42:41,507 {main.py:313} Call the function disk with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:41,507 {main.py:215} Start the Disk Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:42:41,507 {main.py:217} Analyze the Disk for server sawasq05
+2018-11-27 17:42:41,507 {main.py:220} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Disk_Summary.csv
+2018-11-27 17:42:41,507 {main.py:221} call the Disk analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:41,569 {main.py:223} Result captured - status is - OK
+2018-11-27 17:42:41,569 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:42:41,569 {main.py:225} status added into report
+2018-11-27 17:42:41,569 {main.py:217} Analyze the Disk for server sawasq06
+2018-11-27 17:42:41,569 {main.py:220} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Disk_Summary.csv
+2018-11-27 17:42:41,569 {main.py:221} call the Disk analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:41,648 {main.py:223} Result captured - status is - OK
+2018-11-27 17:42:41,648 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:42:41,648 {main.py:225} status added into report
+2018-11-27 17:42:41,648 {main.py:217} Analyze the Disk for server sawasq07
+2018-11-27 17:42:41,648 {main.py:220} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Disk_Summary.csv
+2018-11-27 17:42:41,648 {main.py:221} call the Disk analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:41,726 {main.py:223} Result captured - status is - OK
+2018-11-27 17:42:41,726 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:42:41,726 {main.py:225} status added into report
+2018-11-27 17:42:41,726 {main.py:318} disk analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:42:41,726 {main.py:323} Call the function disk response with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:41,726 {main.py:233} Start the Disk Latency Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:42:41,726 {main.py:235} Analyze the Disk Latency for server sawasq05
+2018-11-27 17:42:41,726 {main.py:238} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Disk_Summary.csv
+2018-11-27 17:42:41,726 {main.py:239} call the Disk Latency analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:41,819 {main.py:241} Result captured - status is - OK
+2018-11-27 17:42:41,819 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:42:41,819 {main.py:243} status added into report
+2018-11-27 17:42:41,819 {main.py:235} Analyze the Disk Latency for server sawasq06
+2018-11-27 17:42:41,819 {main.py:238} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Disk_Summary.csv
+2018-11-27 17:42:41,819 {main.py:239} call the Disk Latency analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:41,866 {main.py:241} Result captured - status is - OK
+2018-11-27 17:42:41,866 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:42:41,866 {main.py:243} status added into report
+2018-11-27 17:42:41,866 {main.py:235} Analyze the Disk Latency for server sawasq07
+2018-11-27 17:42:41,866 {main.py:238} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Disk_Summary.csv
+2018-11-27 17:42:41,866 {main.py:239} call the Disk Latency analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:41,928 {main.py:241} Result captured - status is - OK
+2018-11-27 17:42:41,928 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:42:41,928 {main.py:243} status added into report
+2018-11-27 17:42:41,928 {main.py:328} disk response analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:42:41,928 {main.py:334} Call the function swap with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:41,928 {main.py:197} Start the Swap Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:42:41,928 {main.py:199} Analyze the Swap for server sawasq05
+2018-11-27 17:42:41,928 {main.py:202} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Swap.csv
+2018-11-27 17:42:41,928 {main.py:203} call the swap analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:41,979 {main.py:205} Result captured - status is - OK
+2018-11-27 17:42:41,979 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:42:41,979 {main.py:207} status added into report
+2018-11-27 17:42:41,979 {main.py:199} Analyze the Swap for server sawasq06
+2018-11-27 17:42:41,995 {main.py:202} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Swap.csv
+2018-11-27 17:42:41,995 {main.py:203} call the swap analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:42,026 {main.py:205} Result captured - status is - OK
+2018-11-27 17:42:42,026 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:42:42,026 {main.py:207} status added into report
+2018-11-27 17:42:42,026 {main.py:199} Analyze the Swap for server sawasq07
+2018-11-27 17:42:42,026 {main.py:202} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Swap.csv
+2018-11-27 17:42:42,026 {main.py:203} call the swap analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:42,074 {main.py:205} Result captured - status is - OK
+2018-11-27 17:42:42,074 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:42:42,074 {main.py:207} status added into report
+2018-11-27 17:42:42,074 {main.py:339} Swap analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:42:42,074 {main.py:344} Program going to generate the report
+2018-11-27 17:42:42,089 {main.py:349} Output Generated
+2018-11-27 17:42:42,089 {main.py:358} Error while formatting data
+2018-11-27 17:42:42,183 {main.py:363} C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:42,183 {main.py:365} <_sre.SRE_Match object; span=(0, 49), match='C:\\project\\TQClient\\TQFiles\\TQ_DATA_153779229>
+2018-11-27 17:42:42,183 {main.py:366} re searchg group 0 C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:42:42,183 {main.py:367} re searchg group 1 project\TQClient\TQFiles
+2018-11-27 17:42:42,183 {main.py:368} re searchg group 2 TQ_DATA_1537792295157
+2018-11-27 17:42:42,183 {main.py:376} ssheikga
+2018-11-27 17:42:42,199 {main.py:380} C:/jenkins/data/workspace/epe-dev/TQ_Automation_Analyzer/TQ_DATA_1537792295157
+2018-11-27 17:42:42,309 {main.py:387} Archieve success file placed in ShareDrive
+2018-11-27 17:50:10,789 {main.py:97} TQ Analyzer Started Analyzing the data from path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:10,789 {main.py:123} Already directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU exist, so remove it
+2018-11-27 17:50:10,789 {main.py:129} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU deleted
+2018-11-27 17:50:10,789 {main.py:123} Already directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts exist, so remove it
+2018-11-27 17:50:10,789 {main.py:129} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts deleted
+2018-11-27 17:50:10,789 {main.py:134} listout the directory in C:\project\TQClient\TQFiles\TQ_DATA_1537792295157 and capture each of the server name folder in a list called servers
+2018-11-27 17:50:10,789 {main.py:136} servers found in C:\project\TQClient\TQFiles\TQ_DATA_1537792295157 are ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:50:10,804 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU not found
+2018-11-27 17:50:10,804 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/CPU created
+2018-11-27 17:50:10,804 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Memory not found
+2018-11-27 17:50:10,804 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Memory created
+2018-11-27 17:50:10,804 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Swap not found
+2018-11-27 17:50:10,804 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Swap created
+2018-11-27 17:50:10,804 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk not found
+2018-11-27 17:50:10,804 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk created
+2018-11-27 17:50:10,804 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk_Response not found
+2018-11-27 17:50:10,804 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Disk_Response created
+2018-11-27 17:50:10,804 {main.py:263} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts not found
+2018-11-27 17:50:10,804 {main.py:269} Directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/Charts created
+2018-11-27 17:50:10,836 {main.py:286} Accuracy file created with header
+2018-11-27 17:50:10,836 {main.py:292} Call the function cpu with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:10,836 {main.py:156} Start the CPU Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:50:10,836 {main.py:158} Analyze the CPU for server sawasq05
+2018-11-27 17:50:10,836 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv
+2018-11-27 17:50:10,836 {main.py:164} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv
+2018-11-27 17:50:10,836 {main.py:165} call the CPU analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:10,836 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:182} Started for analyzing server sawasq05 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:11,199 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:188} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv and the interval is 5
+2018-11-27 17:50:11,215 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:192} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv and the interval is 5
+2018-11-27 17:50:11,215 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:203} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/CPU_Busy.csv and the result is None
+2018-11-27 17:50:11,215 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:207} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Kernel.csv and the result is None
+2018-11-27 17:50:11,215 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:143} Call the CPU analyzer, server sawasq05, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:50:11,714 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:160} call cpu_analyzer_call with server sawasq05, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:50:12,119 {main.py:167} Result captured - status is - WARN
+2018-11-27 17:50:12,119 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column CPU_Util and CPU Queue  and assign the value WARN
+2018-11-27 17:50:12,119 {main.py:169} status added into report
+2018-11-27 17:50:12,119 {main.py:158} Analyze the CPU for server sawasq06
+2018-11-27 17:50:12,119 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv
+2018-11-27 17:50:12,119 {main.py:164} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv
+2018-11-27 17:50:12,119 {main.py:165} call the CPU analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:12,119 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:182} Started for analyzing server sawasq06 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:12,119 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:188} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv and the interval is 5
+2018-11-27 17:50:12,135 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:192} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv and the interval is 5
+2018-11-27 17:50:12,135 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:203} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/CPU_Busy.csv and the result is None
+2018-11-27 17:50:12,135 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:207} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Kernel.csv and the result is None
+2018-11-27 17:50:12,135 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:143} Call the CPU analyzer, server sawasq06, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:50:12,556 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:160} call cpu_analyzer_call with server sawasq06, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:50:12,930 {main.py:167} Result captured - status is - WARN
+2018-11-27 17:50:12,930 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column CPU_Util and CPU Queue  and assign the value WARN
+2018-11-27 17:50:12,930 {main.py:169} status added into report
+2018-11-27 17:50:12,930 {main.py:158} Analyze the CPU for server sawasq07
+2018-11-27 17:50:12,930 {main.py:162} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv
+2018-11-27 17:50:12,930 {main.py:164} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv
+2018-11-27 17:50:12,930 {main.py:165} call the CPU analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:12,930 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:182} Started for analyzing server sawasq07 in path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:12,946 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:188} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv and the interval is 5
+2018-11-27 17:50:12,962 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:192} Validated Time for file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv and the interval is 5
+2018-11-27 17:50:12,962 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:203} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/CPU_Busy.csv and the result is None
+2018-11-27 17:50:12,962 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:207} Validated data in file C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Kernel.csv and the result is None
+2018-11-27 17:50:12,962 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:143} Call the CPU analyzer, server sawasq07, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, Kcrit 15, Queue_crit 3.0, Percentage_crit 85.0, interval 5
+2018-11-27 17:50:13,368 {C:\project\Dev\GIT-TQ-LOCAL\TQ_analyzer_panda\lib\Cpu_Analyzer.py:160} call cpu_analyzer_call with server sawasq07, path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157, kcrit 15, Queue_crit 3, Percentage_crit 85
+2018-11-27 17:50:13,774 {main.py:167} Result captured - status is - OK
+2018-11-27 17:50:13,774 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column CPU_Util and CPU Queue  and assign the value OK
+2018-11-27 17:50:13,774 {main.py:169} status added into report
+2018-11-27 17:50:13,774 {main.py:297} CPU analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:50:13,774 {main.py:303} Call the function memory with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:13,774 {main.py:180} Start the Memory Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:50:13,774 {main.py:182} Analyze the Memory for server sawasq05
+2018-11-27 17:50:13,774 {main.py:185} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Memory_Util.csv
+2018-11-27 17:50:13,774 {main.py:186} call the memory analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:14,331 {main.py:188} Result captured - status is - OK
+2018-11-27 17:50:14,331 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:50:14,331 {main.py:190} status added into report
+2018-11-27 17:50:14,331 {main.py:182} Analyze the Memory for server sawasq06
+2018-11-27 17:50:14,331 {main.py:185} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Memory_Util.csv
+2018-11-27 17:50:14,331 {main.py:186} call the memory analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:14,877 {main.py:188} Result captured - status is - OK
+2018-11-27 17:50:14,877 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:50:14,877 {main.py:190} status added into report
+2018-11-27 17:50:14,877 {main.py:182} Analyze the Memory for server sawasq07
+2018-11-27 17:50:14,877 {main.py:185} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Memory_Util.csv
+2018-11-27 17:50:14,877 {main.py:186} call the memory analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:15,430 {main.py:188} Result captured - status is - OK
+2018-11-27 17:50:15,430 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Memory_Util  and assign the value OK
+2018-11-27 17:50:15,430 {main.py:190} status added into report
+2018-11-27 17:50:15,430 {main.py:308} Memory analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:50:15,430 {main.py:313} Call the function disk with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:15,430 {main.py:215} Start the Disk Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:50:15,430 {main.py:217} Analyze the Disk for server sawasq05
+2018-11-27 17:50:15,430 {main.py:220} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Disk_Summary.csv
+2018-11-27 17:50:15,430 {main.py:221} call the Disk analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:15,508 {main.py:223} Result captured - status is - OK
+2018-11-27 17:50:15,508 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:50:15,508 {main.py:225} status added into report
+2018-11-27 17:50:15,508 {main.py:217} Analyze the Disk for server sawasq06
+2018-11-27 17:50:15,508 {main.py:220} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Disk_Summary.csv
+2018-11-27 17:50:15,508 {main.py:221} call the Disk analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:15,602 {main.py:223} Result captured - status is - OK
+2018-11-27 17:50:15,602 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:50:15,602 {main.py:225} status added into report
+2018-11-27 17:50:15,602 {main.py:217} Analyze the Disk for server sawasq07
+2018-11-27 17:50:15,602 {main.py:220} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Disk_Summary.csv
+2018-11-27 17:50:15,602 {main.py:221} call the Disk analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:15,680 {main.py:223} Result captured - status is - OK
+2018-11-27 17:50:15,680 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Disk_Util and Disk_Queue  and assign the value OK
+2018-11-27 17:50:15,695 {main.py:225} status added into report
+2018-11-27 17:50:15,695 {main.py:318} disk analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:50:15,695 {main.py:323} Call the function disk response with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:15,695 {main.py:233} Start the Disk Latency Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:50:15,695 {main.py:235} Analyze the Disk Latency for server sawasq05
+2018-11-27 17:50:15,695 {main.py:238} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Disk_Summary.csv
+2018-11-27 17:50:15,695 {main.py:239} call the Disk Latency analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:15,742 {main.py:241} Result captured - status is - OK
+2018-11-27 17:50:15,742 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:50:15,742 {main.py:243} status added into report
+2018-11-27 17:50:15,742 {main.py:235} Analyze the Disk Latency for server sawasq06
+2018-11-27 17:50:15,742 {main.py:238} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Disk_Summary.csv
+2018-11-27 17:50:15,742 {main.py:239} call the Disk Latency analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:15,773 {main.py:241} Result captured - status is - OK
+2018-11-27 17:50:15,773 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:50:15,789 {main.py:243} status added into report
+2018-11-27 17:50:15,789 {main.py:235} Analyze the Disk Latency for server sawasq07
+2018-11-27 17:50:15,789 {main.py:238} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Disk_Summary.csv
+2018-11-27 17:50:15,789 {main.py:239} call the Disk Latency analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:15,820 {main.py:241} Result captured - status is - OK
+2018-11-27 17:50:15,820 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Disk_Response  and assign the value OK
+2018-11-27 17:50:15,820 {main.py:243} status added into report
+2018-11-27 17:50:15,820 {main.py:328} disk response analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:50:15,820 {main.py:334} Call the function swap with the servers ['sawasq05', 'sawasq06', 'sawasq07'] and directory C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:15,820 {main.py:197} Start the Swap Analyzer for servers ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:50:15,820 {main.py:199} Analyze the Swap for server sawasq05
+2018-11-27 17:50:15,820 {main.py:202} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq05/Swap.csv
+2018-11-27 17:50:15,820 {main.py:203} call the swap analyzer with server sawasq05 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:16,450 {main.py:205} Result captured - status is - OK
+2018-11-27 17:50:16,450 {main.py:151} Update the report  based on server sawasq05 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:50:16,450 {main.py:207} status added into report
+2018-11-27 17:50:16,450 {main.py:199} Analyze the Swap for server sawasq06
+2018-11-27 17:50:16,450 {main.py:202} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq06/Swap.csv
+2018-11-27 17:50:16,450 {main.py:203} call the swap analyzer with server sawasq06 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:17,031 {main.py:205} Result captured - status is - OK
+2018-11-27 17:50:17,031 {main.py:151} Update the report  based on server sawasq06 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:50:17,033 {main.py:207} status added into report
+2018-11-27 17:50:17,033 {main.py:199} Analyze the Swap for server sawasq07
+2018-11-27 17:50:17,033 {main.py:202} File exist C:\project\TQClient\TQFiles\TQ_DATA_1537792295157/sawasq07/Swap.csv
+2018-11-27 17:50:17,033 {main.py:203} call the swap analyzer with server sawasq07 and path C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:17,598 {main.py:205} Result captured - status is - OK
+2018-11-27 17:50:17,598 {main.py:151} Update the report  based on server sawasq07 and based on the metrics column Swap  and assign the value OK
+2018-11-27 17:50:17,614 {main.py:207} status added into report
+2018-11-27 17:50:17,614 {main.py:339} Swap analyzer done for server ['sawasq05', 'sawasq06', 'sawasq07']
+2018-11-27 17:50:17,614 {main.py:344} Program going to generate the report
+2018-11-27 17:50:17,614 {main.py:349} Output Generated
+2018-11-27 17:50:17,629 {main.py:358} Error while formatting data
+2018-11-27 17:50:17,754 {main.py:363} C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:17,754 {main.py:365} <_sre.SRE_Match object; span=(0, 49), match='C:\\project\\TQClient\\TQFiles\\TQ_DATA_153779229>
+2018-11-27 17:50:17,754 {main.py:366} re searchg group 0 C:\project\TQClient\TQFiles\TQ_DATA_1537792295157
+2018-11-27 17:50:17,754 {main.py:367} re searchg group 1 project\TQClient\TQFiles
+2018-11-27 17:50:17,754 {main.py:368} re searchg group 2 TQ_DATA_1537792295157
+2018-11-27 17:50:17,754 {main.py:376} ssheikga
+2018-11-27 17:50:17,754 {main.py:380} C:/jenkins/data/workspace/epe-dev/TQ_Automation_Analyzer/TQ_DATA_1537792295157
+2018-11-27 17:50:17,863 {main.py:387} Archieve success file placed in ShareDrive
